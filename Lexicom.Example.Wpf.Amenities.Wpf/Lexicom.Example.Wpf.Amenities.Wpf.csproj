@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lexicom.Concentrate.Wpf.Amenities" Version="8.0.8" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="8.0.11" />
+    <PackageReference Include="Lexicom.Extensions.Debugging" Version="8.0.11" />
+    <!--<PackageReference Include="Lexicom.Mvvm.For.Wpf" Version="8.0.11" />-->
+    <PackageReference Include="Lexicom.Wpf.Amenities" Version="8.0.11" />
+    <PackageReference Include="Lexicom.Wpf.DependencyInjection" Version="8.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lexicom.Example.Wpf.Amenities.ViewModels\Lexicom.Example.Wpf.Amenities.ViewModels.csproj" />
+    <ProjectReference Include="..\Temp.Mvvm.For.Wpf\Temp.Mvvm.For.Wpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

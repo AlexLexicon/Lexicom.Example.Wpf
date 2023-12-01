@@ -1,0 +1,34 @@
+﻿<UserControl 
+    x:Class="Lexicom.Example.Wpf.Amenities.Wpf.OrderDetailsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:v="clr-namespace:Lexicom.Example.Wpf.Amenities.Wpf"
+    xmlns:vm="clr-namespace:Lexicom.Example.Wpf.Amenities.ViewModels;assembly=Lexicom.Example.Wpf.Amenities.ViewModels"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance vm:OrderDetailsViewModel}"
+    d:DesignWidth="400"
+    Height="42">
+
+    <DockPanel>
+        <Label 
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center">
+            <TextBlock>
+                <TextBlock Text="#"/>
+                <TextBlock 
+                    d:Text="1"
+                    Text="{Binding Order.Index}"/>
+            </TextBlock>
+        </Label>
+        <Border
+            BorderBrush="Black"
+            BorderThickness="2,0,0,0">
+            <Label 
+                VerticalContentAlignment="Center"
+                d:Content="Thing"
+                Content="{Binding Order.Name}"/>
+        </Border>
+    </DockPanel>
+</UserControl>

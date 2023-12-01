@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lexicom.Concentrate.Wpf.Amenities.Abstractions" Version="8.0.8" />
+    <!--<PackageReference Include="Lexicom.Mvvm.Amenities" Version="8.0.11" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lexicom.Example.Wpf.Amenities.Application\Lexicom.Example.Wpf.Amenities.Application.csproj" />
+    <ProjectReference Include="..\Temp.Mvvm.Amenities\Temp.Mvvm.Amenities.csproj" />
+  </ItemGroup>
+
+</Project>
