@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Concentrate.Wpf.Amenities.Abstractions" Version="8.0.8" />
+    <PackageReference Include="Lexicom.Concentrate.Wpf.Amenities.Abstractions" Version="8.0.10" />
     <!--<PackageReference Include="Lexicom.Mvvm.Amenities" Version="8.0.11" />-->
   </ItemGroup>
 

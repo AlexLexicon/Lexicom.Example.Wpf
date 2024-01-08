@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.DependencyInjection.Hosting.Abstractions" Version="8.0.11" />
-    <PackageReference Include="Lexicom.Mvvm" Version="8.0.11" />
+    <PackageReference Include="Lexicom.DependencyInjection.Hosting.Abstractions" Version="8.0.15" />
+    <PackageReference Include="Lexicom.Mvvm" Version="8.0.15" />
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 

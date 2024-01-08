@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="8.0.11" />
-    <PackageReference Include="Lexicom.Supports.Wpf" Version="8.0.11" />
+    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="8.0.15" />
+    <PackageReference Include="Lexicom.Supports.Wpf" Version="8.0.15" />
   </ItemGroup>
 
   <ItemGroup>
