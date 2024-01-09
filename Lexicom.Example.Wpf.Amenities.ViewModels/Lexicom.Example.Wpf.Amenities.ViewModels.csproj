@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lexicom.Example.Wpf.Amenities.Application\Lexicom.Example.Wpf.Amenities.Application.csproj" />
-    <ProjectReference Include="..\Temp.Mvvm.Amenities\Temp.Mvvm.Amenities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lexicom.Example.Wpf.Amenities.ViewModels\Lexicom.Example.Wpf.Amenities.ViewModels.csproj" />
-    <ProjectReference Include="..\Temp.Mvvm.For.Wpf\Temp.Mvvm.For.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
