@@ -10,25 +10,26 @@
     d:DataContext="{d:DesignInstance vm:OrderDetailsViewModel}"
     d:DesignWidth="400"
     Height="42">
-
-    <DockPanel>
-        <Label 
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center">
-            <TextBlock>
-                <TextBlock Text="#"/>
-                <TextBlock 
-                    d:Text="1"
-                    Text="{Binding Order.Index}"/>
-            </TextBlock>
-        </Label>
-        <Border
-            BorderBrush="Black"
-            BorderThickness="2,0,0,0">
+    
+    <Border
+        BorderBrush="Gainsboro"
+        BorderThickness="0,0,0,2">
+        <DockPanel>
+            <Label 
+                Background="Gainsboro"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+                <TextBlock>
+                    <TextBlock Text="#"/>
+                    <TextBlock 
+                        d:Text="1"
+                        Text="{Binding Order.Index}"/>
+                </TextBlock>
+            </Label>
             <Label 
                 VerticalContentAlignment="Center"
                 d:Content="Thing"
-                Content="{Binding Order.Name}"/>
-        </Border>
-    </DockPanel>
+                Content="{Binding Order.Text}"/>
+        </DockPanel>
+    </Border>
 </UserControl>

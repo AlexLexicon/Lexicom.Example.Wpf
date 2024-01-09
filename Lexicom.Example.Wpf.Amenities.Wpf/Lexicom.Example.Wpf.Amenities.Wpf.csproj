@@ -12,6 +12,7 @@
     <PackageReference Include="Lexicom.Concentrate.Wpf.Amenities" Version="8.0.10" />
     <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="8.0.15" />
     <PackageReference Include="Lexicom.Extensions.Debugging" Version="8.0.15" />
+    <PackageReference Include="Lexicom.Validation.For.Wpf" Version="8.0.15" />
     <!--<PackageReference Include="Lexicom.Mvvm.For.Wpf" Version="8.0.11" />-->
     <PackageReference Include="Lexicom.Wpf.Amenities" Version="8.0.15" />
     <PackageReference Include="Lexicom.Wpf.DependencyInjection" Version="8.0.15" />

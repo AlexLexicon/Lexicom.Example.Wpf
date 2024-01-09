@@ -3,8 +3,9 @@
 namespace Lexicom.Example.Wpf.Amenities.Application.Services;
 public interface IOrdersService
 {
-    Task AddOrderAsync(int index, string name);
+    Task AddOrderAsync(string text);
     Task<IReadOnlyList<Order>> GetOrdersAsync();
+    Task<int> GetOrdersCountAsync();
 }
 public class OrdersService : IOrdersService
 {
@@ -20,14 +21,19 @@ public class OrdersService : IOrdersService
         return Task.FromResult<IReadOnlyList<Order>>(_orders);
     }
 
-    public Task AddOrderAsync(int index, string name)
+    public async Task AddOrderAsync(string text)
     {
+        int count = await GetOrdersCountAsync();
+
         _orders.Add(new Order
         {
-            Index = index,
-            Name = name,
+            Index = count,
+            Text = text,
         });
+    }
 
-        return Task.CompletedTask;
+    public Task<int> GetOrdersCountAsync()
+    {
+        return Task.FromResult(_orders.Count);
     }
 }

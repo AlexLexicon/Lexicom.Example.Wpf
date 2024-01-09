@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:v="clr-namespace:Lexicom.Example.Wpf.Amenities.Wpf"
     xmlns:vm="clr-namespace:Lexicom.Example.Wpf.Amenities.ViewModels;assembly=Lexicom.Example.Wpf.Amenities.ViewModels"
     mc:Ignorable="d"
@@ -11,6 +12,12 @@
     d:DesignWidth="800"
     Height="64">
 
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    
     <Border
         Background="WhiteSmoke"
         BorderBrush="Gainsboro"
@@ -29,7 +36,7 @@
                     Width="24"
                     Height="24"
                     Background="White"
-                    BorderBrush="Black"
+                    BorderBrush="Maroon"
                     BorderThickness="2"
                     CornerRadius="16" Margin="0,6,6,0">
                     <Label 
@@ -40,16 +47,11 @@
                         Content="{Binding OrdersCount}"/>
                 </Border>
             </Grid>
-            <Button
-                DockPanel.Dock="Left"
-                Width="96"
-                Height="32"
-                Margin="16,0,0,0"
-                Content="My Account"/>
             <Label
-                HorizontalContentAlignment="Center"
+                HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Center"
-                FontSize="16"
+                FontSize="20"
+                Content="{Binding WindowId}"
                 d:Content="This window type"/>
         </DockPanel>
     </Border>

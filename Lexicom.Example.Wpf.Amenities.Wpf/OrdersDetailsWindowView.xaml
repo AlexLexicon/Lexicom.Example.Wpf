@@ -15,20 +15,55 @@
 
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
-            <b:InvokeCommandAction Command="{Binding LoadOrdersCommand}"/>
+            <b:InvokeCommandAction Command="{Binding LoadedCommand}"/>
         </b:EventTrigger>
     </b:Interaction.Triggers>
-    
-    <DockPanel LastChildFill="False">
-        <v:HeaderView 
+
+    <DockPanel>
+        <DockPanel 
             DockPanel.Dock="Top"
-            DataContext="{Binding HeaderViewModel}"/>
-        <ItemsControl ItemsSource="{Binding OrderViewModels}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <v:OrderDetailsView/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            Background="WhiteSmoke"
+            Height="64">
+            <Border
+                BorderBrush="Maroon"
+                BorderThickness="2"
+                CornerRadius="8"
+                Margin="4"
+                Width="56">
+                <DockPanel>
+                    <Label 
+                        HorizontalContentAlignment="Center"
+                        FontSize="11">
+                        <TextBlock TextAlignment="Center">
+                            <TextBlock Text="Total"/>
+                            <LineBreak/>
+                            <TextBlock Text="Orders"/>
+                            <LineBreak/>
+                            <TextBlock 
+                                d:Text="6"
+                                Text="{Binding OrdersCount}"/>
+                        </TextBlock>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Label
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                Content="{Binding Title}"
+                d:Content="This window type"/>
+        </DockPanel>
+        <v:FooterView
+            DockPanel.Dock="Bottom"
+            DataContext="{Binding FooterViewModel}"/>
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding OrderViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <v:OrderDetailsView/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </DockPanel>
 </Window>

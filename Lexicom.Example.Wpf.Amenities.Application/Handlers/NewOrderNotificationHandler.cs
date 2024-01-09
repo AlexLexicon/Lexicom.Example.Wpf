@@ -14,6 +14,6 @@ public class NewOrderNotificationHandler : INotificationHandler<NewOrderNotifica
 
     public async Task Handle(NewOrderNotification notification, CancellationToken cancellationToken)
     {
-        await _ordersService.AddOrderAsync(notification.Index, notification.Name);
+        await _ordersService.AddOrderAsync(notification.Text);
     }
 }

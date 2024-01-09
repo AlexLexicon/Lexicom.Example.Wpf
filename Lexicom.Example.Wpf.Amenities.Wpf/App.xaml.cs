@@ -1,18 +1,17 @@
 ﻿using Lexicom.Configuration.Settings.For.Wpf.Extensions;
 using Lexicom.Example.Wpf.Amenities.Application.Extensions;
-using Lexicom.Example.Wpf.Amenities.Application.Notifications;
 using Lexicom.Example.Wpf.Amenities.ViewModels;
 using Lexicom.Example.Wpf.Amenities.ViewModels.Extensions;
-using Lexicom.Extensions.Debugging;
 using Lexicom.Mvvm.Amenities.Extensions;
 using Lexicom.Mvvm.Extensions;
 using Lexicom.Mvvm.For.Wpf.Extensions;
 using Lexicom.Supports.Wpf.Extensions;
+using Lexicom.Validation.Amenities.Extensions;
+using Lexicom.Validation.Extensions;
+using Lexicom.Validation.For.Wpf.Extensions;
 using Lexicom.Wpf.Amenities.Extensions;
 using Lexicom.Wpf.DependencyInjection;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 
 namespace Lexicom.Example.Wpf.Amenities.Wpf;
 public partial class App : System.Windows.Application
@@ -48,18 +47,24 @@ public partial class App : System.Windows.Application
                     options.ServiceLifetime = ServiceLifetime.Transient;
                     options.ForWindow<OrdersDetailsWindowView>();
                 });
+                options.AddViewModel<FooterViewModel>(ServiceLifetime.Transient);
                 options.AddViewModel<HeaderViewModel>(ServiceLifetime.Scoped);
                 options.AddViewModel<OrderDetailsViewModel>(ServiceLifetime.Scoped);
             });
             l.AddAmenities();
             l.AddSettings(Wpf.Properties.Settings.Default);
+            l.AddValidation(options =>
+            {
+                options.AddAmenities();
+                options.AddViewModels();
+            });
         });
 
-        var xxxxxx = builder.Services.ToReadableJsonForDebugging();
+        //var xxxxxx = builder.Services.ToReadableJsonForDebugging();
 
-        var app  = builder.Build();
+        var app = builder.Build();
 
-        var yyyy = app.Services.GetRequiredService<IEnumerable<INotificationHandler<NewOrderNotification>>>();
+        //var yyyy = app.Services.GetRequiredService<IEnumerable<INotificationHandler<NewOrderNotification>>>();
 
         app.StartupWindow<MainWindowView>();
     }

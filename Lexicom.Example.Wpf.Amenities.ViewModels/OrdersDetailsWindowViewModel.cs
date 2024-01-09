@@ -13,21 +13,29 @@ public partial class OrdersDetailsWindowViewModel : ObservableObject, IShowableV
 {
     private readonly IViewModelFactory _viewModelFactory;
     private readonly IOrdersService _ordersService;
+    private readonly IWindowTitleService _windowTitleService;
 
     public OrdersDetailsWindowViewModel(
+        FooterViewModel footerViewModel,
         IViewModelFactory viewModelFactory,
-        HeaderViewModel headerViewModel,
-        IOrdersService ordersService)
+        IOrdersService ordersService,
+        IWindowTitleService windowTitleService)
     {
+        _footerViewModel = footerViewModel;
+
         _viewModelFactory = viewModelFactory;
-        _headerViewModel = headerViewModel;
+        _ordersService = ordersService;
+        _windowTitleService = windowTitleService;
 
         _orderViewModels = [];
-        _ordersService = ordersService;
     }
 
     [ObservableProperty]
-    private HeaderViewModel _headerViewModel;
+    private string? _title;
+    [ObservableProperty]
+    private int _ordersCount;
+    [ObservableProperty]
+    private FooterViewModel _footerViewModel;
     [ObservableProperty]
     private ObservableCollection<OrderDetailsViewModel> _orderViewModels;
     public ICommand? ShowCommand { get; set; }
@@ -38,16 +46,27 @@ public partial class OrdersDetailsWindowViewModel : ObservableObject, IShowableV
     }
 
     [RelayCommand]
+    private async Task LoadedAsync()
+    {
+        Title = await _windowTitleService.GetOrdersTitleAsync();
+
+        await FooterViewModel.SetTitleAsync(false);
+
+        await LoadOrdersAsync();
+    }
+
     private async Task LoadOrdersAsync()
     {
         OrderViewModels.Clear();
 
-        var orders = await _ordersService.GetOrdersAsync();
-        foreach (var order in orders)
+        IReadOnlyList<Order> orders = await _ordersService.GetOrdersAsync();
+        foreach (Order order in orders)
         {
             var orderDetailsViewModel = _viewModelFactory.Create<OrderDetailsViewModel, Order>(order);
 
             OrderViewModels.Add(orderDetailsViewModel);
         }
+
+        OrdersCount = await _ordersService.GetOrdersCountAsync();
     }
 }

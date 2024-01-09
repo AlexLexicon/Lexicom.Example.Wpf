@@ -7,5 +7,8 @@ public static class ServiceCollectionExtensions
     public static void AddApplication(this IServiceCollection services)
     {
         services.AddSingleton<IOrdersService, OrdersService>();
+
+        services.AddScoped<IWindowTitleService, WindowTitleService>();
+        services.AddTransient<IWindowIdService, WindowIdService>();
     }
 }

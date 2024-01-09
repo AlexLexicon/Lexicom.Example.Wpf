@@ -16,5 +16,8 @@
         <v:HeaderView 
             DockPanel.Dock="Top"
             DataContext="{Binding HeaderViewModel}"/>
+        <v:FooterView
+            DockPanel.Dock="Bottom"
+            DataContext="{Binding FooterViewModel}"/>
     </DockPanel>
 </Window>
