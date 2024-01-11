@@ -18,7 +18,6 @@ public partial class FooterViewModel : ObservableObject
 
     [ObservableProperty]
     private string? _windowId;
-
     [ObservableProperty]
     private string? _title;
 

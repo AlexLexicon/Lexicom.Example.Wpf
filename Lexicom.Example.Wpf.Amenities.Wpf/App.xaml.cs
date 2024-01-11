@@ -7,7 +7,6 @@ using Lexicom.Mvvm.Extensions;
 using Lexicom.Mvvm.For.Wpf.Extensions;
 using Lexicom.Supports.Wpf.Extensions;
 using Lexicom.Validation.Amenities.Extensions;
-using Lexicom.Validation.Extensions;
 using Lexicom.Validation.For.Wpf.Extensions;
 using Lexicom.Wpf.Amenities.Extensions;
 using Lexicom.Wpf.DependencyInjection;
@@ -37,19 +36,14 @@ public partial class App : System.Windows.Application
                 {
                     options.ForWindow<MainWindowView>();
                 });
-                options.AddViewModel<AccountWindowViewModel>(options =>
-                {
-                    options.ServiceLifetime = ServiceLifetime.Transient;
-                    options.ForWindow<AccountWindowView>();
-                });
                 options.AddViewModel<OrdersDetailsWindowViewModel>(options =>
                 {
                     options.ServiceLifetime = ServiceLifetime.Transient;
                     options.ForWindow<OrdersDetailsWindowView>();
                 });
                 options.AddViewModel<FooterViewModel>(ServiceLifetime.Transient);
-                options.AddViewModel<HeaderViewModel>(ServiceLifetime.Scoped);
-                options.AddViewModel<OrderDetailsViewModel>(ServiceLifetime.Scoped);
+                options.AddViewModel<HeaderViewModel>(ServiceLifetime.Transient);
+                options.AddViewModel<OrderDetailsViewModel>(ServiceLifetime.Transient);
             });
             l.AddAmenities();
             l.AddSettings(Wpf.Properties.Settings.Default);
@@ -60,11 +54,7 @@ public partial class App : System.Windows.Application
             });
         });
 
-        //var xxxxxx = builder.Services.ToReadableJsonForDebugging();
-
         var app = builder.Build();
-
-        //var yyyy = app.Services.GetRequiredService<IEnumerable<INotificationHandler<NewOrderNotification>>>();
 
         app.StartupWindow<MainWindowView>();
     }

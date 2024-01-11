@@ -35,7 +35,7 @@ public partial class OrdersDetailsWindowViewModel : ObservableObject, IShowableV
     [ObservableProperty]
     private int _ordersCount;
     [ObservableProperty]
-    private FooterViewModel _footerViewModel;
+    private FooterViewModel? _footerViewModel;
     [ObservableProperty]
     private ObservableCollection<OrderDetailsViewModel> _orderViewModels;
     public ICommand? ShowCommand { get; set; }
@@ -48,6 +48,8 @@ public partial class OrdersDetailsWindowViewModel : ObservableObject, IShowableV
     [RelayCommand]
     private async Task LoadedAsync()
     {
+        FooterViewModel = _viewModelFactory.Create<FooterViewModel>();
+
         Title = await _windowTitleService.GetOrdersTitleAsync();
 
         await FooterViewModel.SetTitleAsync(false);

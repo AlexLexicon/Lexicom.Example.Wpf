@@ -11,8 +11,8 @@ public class WindowTitleService : IWindowTitleService
 
     public WindowTitleService()
     {
-        _mainWindowTitle = $"Main [{Random.Shared.Next(10, 100)}] Window (scoped)";
-        _ordersWindowTitle = $"Orders [{Random.Shared.Next(10, 100)}] Window (scoped)";
+        _mainWindowTitle = $"Main [{Random.Shared.Next(10, 100)}] Window";
+        _ordersWindowTitle = $"Orders [{Random.Shared.Next(10, 100)}] Window";
     }
 
     public Task<string> GetMainWindowTitleAsync()

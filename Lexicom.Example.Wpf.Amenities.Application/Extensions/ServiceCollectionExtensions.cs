@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddSingleton<IOrdersService, OrdersService>();
 
-        services.AddScoped<IWindowTitleService, WindowTitleService>();
+        services.AddSingleton<IWindowTitleService, WindowTitleService>();
         services.AddTransient<IWindowIdService, WindowIdService>();
     }
 }
